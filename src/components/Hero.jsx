@@ -50,11 +50,11 @@ export default function Hero() {
                         loop
                         className="w-full h-full object-cover brightness-70"
                     />
-                    <div className="absolute top-45 left-30 text-white max-w-4xl z-10 space-y-10">
-                        <h1 className="text-6xl font-bold bg-gradient-to-r from-[#F0E5D9] to-[#DFB77C] bg-clip-text text-transparent">{vid.title}</h1>
-                        <p className="max-w-lg text-xl font-light">{vid.desc}</p>
+                    <div className="absolute top-[30%] md:top-[20%] left-5 md:left-10 lg:left-30 text-white max-w-xl md:max-w-3xl lg:max-w-4xl z-10 space-y-6 md:space-y-10">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#F0E5D9] to-[#DFB77C] bg-clip-text text-transparent">{vid.title}</h1>
+                        <p className="text-sm md:text-lg lg:text-xl font-light max-w-full md:max-w-lg">{vid.desc}</p>
                         <button 
-                            className='w-64 h-15 bg-[#7F4F20] rounded-[20px] cursor-pointer'
+                            className='w-40 md:w-56 h-12 md:h-15 bg-[#7F4F20] rounded-[20px] cursor-pointer text-sm md:text-base'
                             onClick={() => navigate('/contact')}
                         >Enquiry Now</button>
                     </div>

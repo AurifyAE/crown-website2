@@ -41,39 +41,44 @@ export default function Services() {
 
     return (
         <div id='services' className='relative w-full'>
-            <div className='text-center text-white space-y-5 py-20'>
-                <h1 className='text-4xl font-bold '>What we do?</h1>
-            <p className='text-xl'>At Crown, we offer a wide range of services to meet the diverse needs of our client:</p>
+            <div className='text-center text-white space-y-5 py-16 px-4'>
+                <h1 className='text-3xl md:text-4xl font-bold'>What we do?</h1>
+                <p className='text-base md:text-xl'>
+                    At Crown, we offer a wide range of services to meet the diverse needs of our clients:
+                </p>
             </div>
+
             <video
                 src={tradingVideo}
                 autoPlay
                 muted
                 loop
-                className="w-full h-full object-cover brightness-70"
+                className="w-full h-[700px] object-cover brightness-70"
             />
+
             <motion.div
                 ref={ref}
                 animate={controls}
                 initial={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6 }}
-                className='absolute top-60 left-0 w-full px-5 py-20 flex justify-center'
+                className='absolute top-60 left-0 w-full px-4 md:px-10 py-10 flex justify-center'
             >
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 gap-x-20'>
+                <div className='grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-10 max-w-6xl w-full'>
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
                             custom={index}
                             animate={controls}
                             initial={{ opacity: 0, y: 50 }}
-                            className='w-115 h-80 bg-[#7f4f20d8] flex flex-col items-center justify-center text-center p-15 rounded-4xl gap-5'
+                            className='w-full h-auto min-h-[250px] bg-[#7f4f20d8] flex flex-col items-center justify-center text-center p-6 rounded-4xl gap-3'
                         >
-                            <h2 className='text-2xl font-semibold mb-2'>{service.title}</h2>
-                            <p className='text-lg'>{service.desc}</p>
+                            <h2 className='text-base md:text-xl lg:text-2xl font-semibold mb-2'>{service.title}</h2>
+                            <p className='text-xs lg:text-base'>{service.desc}</p>
                         </motion.div>
                     ))}
                 </div>
             </motion.div>
         </div>
+
     )
 }
