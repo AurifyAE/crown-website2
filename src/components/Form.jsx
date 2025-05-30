@@ -27,7 +27,7 @@ export default function Form() {
     const handleWhatsAppClick = () => {
         const { firstName, lastName, email, phone, subject, message } = formData;
         const fullMessage = `Hello, I'm ${firstName} ${lastName}. Subject: ${subject}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-        const url = `https://wa.me/+919072839370?text=${encodeURIComponent(fullMessage)}`;
+        const url = `https://wa.me/+971525911916?text=${encodeURIComponent(fullMessage)}`;
         window.open(url, '_blank');
 
         // reset form
