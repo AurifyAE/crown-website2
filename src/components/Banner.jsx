@@ -7,9 +7,9 @@ export default function Banner() {
         <div className='h-8 md:h-12 bg-white flex items-center justify-end gap-5 px-6 md:px-14'>
             <div 
             className='h-5 flex items-center gap-3 cursor-pointer'
-            onClick={() => window.location.href = 'tel:+97143368916'}>
+            onClick={() => window.location.href = 'tel:+97148827322'}>
                 <img src={phone} alt="phone" className='w-4 md:w-6' />
-                <p className='text-xs md:text-base text-black'>+971 4 336 8916</p>
+                <p className='text-xs md:text-base text-black'>+971 4882 7322</p>
             </div>
             <div 
             className='h-5 flex items-center gap-3 cursor-pointer'
