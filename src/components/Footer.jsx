@@ -56,7 +56,7 @@ export default function Footer() {
                 <p>
                 Crown Future Gold and Diamond LLC, <br />
                 Edris Muhammed Sharif Abdullah, <br />
-                Shop 2, Al Ghagaya, Deira, Dubai.
+                Shop 2, Al Dhagaya, Deira, Dubai.
                 </p>
             </div>
             <div className='flex items-start gap-3 cursor-pointer'>
@@ -68,9 +68,9 @@ export default function Footer() {
                 </p>
             </div>
             <div className='flex items-center gap-3 cursor-pointer'
-                onClick={() => window.location.href = 'mailto:crownbulliongold@gmail.com'}>
+                onClick={() => window.location.href = 'mailto:info@crownfuturegold.com'}>
                 <img src={mail} alt="Mail" className='w-5 h-5' />
-                <p>info@crownfuturegoldgmail.com</p>
+                <p>info@crownfuturegold.com</p>
             </div>
             </div>
         </div>
