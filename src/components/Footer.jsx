@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <div className='flex flex-col items-center bg-[#7F4F20] pt-10 gap-5 lato-regular text-white px-4'>
+        <div className='flex flex-col items-center bg-[#7F4F20] pt-10 gap-5 font-[Lato] text-white px-4'>
         {/* Top text */}
         <p className='text-sm md:text-base text-center px-2'>
             Get started now, try our product and start saving through trading

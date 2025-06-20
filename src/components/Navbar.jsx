@@ -1,11 +1,42 @@
 import React from 'react'
 import logo from '../assets/crownlogo.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 export default function Navbar() {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+
+    const scrollToSection = (sectionId) => {
+        // If we're already on the home page, scroll immediately
+        if (location.pathname === '/') {
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // If we're on another page, navigate first then scroll after a delay
+            navigate('/');
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    };
+
+    const handleMobileMenuClick = (sectionId) => {
+        setIsOpen(false);
+        // If we're not on home page, navigate first
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        } else {
+            // If we're on home page, just scroll after menu closes
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+            }, 400);
+        }
+    };
 
     return (
         <div className='sticky top-0 left-0 w-full z-50 flex justify-between items-center bg-[#7F4F20] text-white py-1 px-5 md:px-15 lg:px-30 shadow-xl'>
@@ -15,27 +46,27 @@ export default function Navbar() {
 
             <button 
                 className='hidden lg:block w-40 h-10 bg-white text-[#7F4F20] border rounded-[20px] shadow-[0_0_15px_white] border-white cursor-pointer'
-                onClick={() => document.getElementById('liverate').scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => scrollToSection('liverate')}
                 >
                 Live Rate
             </button>
 
             <div className='lg:flex justify-evenly items-center w-1/2 gap-3 hidden'>
                 <button
-                    className='cursor-pointer '
-                    onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                    className='cursor-pointer'
+                    onClick={() => scrollToSection('about')}
                 >
                     About Us
                 </button>
                 <button 
-                    className='cursor-pointer '
-                    onClick={() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' })}
+                    className='cursor-pointer'
+                    onClick={() => scrollToSection('products')}
                 >
                     Products
                 </button>
                 <button 
-                    className='cursor-pointer '
-                    onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
+                    className='cursor-pointer'
+                    onClick={() => scrollToSection('services')}
                 >
                     Services
                 </button>
@@ -70,13 +101,23 @@ export default function Navbar() {
                 </div>
                 <div className='flex flex-col items-start px-6 gap-5'>
                     <button 
-                        className='w-32 h-10 bg-white text-[#7F4F20] border rounded-[20px] shadow-[0_0_15px_white] border-white'
-                        onClick={() => document.getElementById('liverate').scrollIntoView({ behavior: 'smooth' })}>Live Rate</button>
-                    <button onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About Us</button>
-                    <button onClick={() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' })}>Products</button>
-                    <button onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>Services</button>
-                    <Link to="/account"><button>My Account</button></Link>
-                    <Link to="/contact"><button>Contact Us</button></Link>
+                        className='text-white cursor-pointer'
+                        onClick={() => handleMobileMenuClick('about')}>About Us</button>
+                    <button 
+                        className='text-white cursor-pointer'
+                        onClick={() => handleMobileMenuClick('products')}>Products</button>
+                    <button 
+                        className='text-white cursor-pointer'
+                        onClick={() => handleMobileMenuClick('services')}>Services</button>
+                    <Link to="/account">
+                        <button className='text-white cursor-pointer'>My Account</button>
+                    </Link>
+                    <Link to="/contact">
+                        <button className='text-white cursor-pointer'>Contact Us</button>
+                    </Link>
+                    <button 
+                        className='w-32 h-10 bg-white text-[#7F4F20] border rounded-[20px] shadow-[0_0_15px_white] border-white cursor-pointer'
+                        onClick={() => handleMobileMenuClick('liverate')}>Live Rate</button>
                 </div>
             </div>
             {/* Backdrop (optional) */}
