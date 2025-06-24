@@ -42,7 +42,7 @@ export default function Form() {
     };
 
     const handleSendEmail = () => {
-        const email = "info@crownfuturegoldgmail.com"; // check this email — seems wrong (no @gmail.com?)
+        const email = "info@crownfuturegold.com";
         const subject = " from Website";
 
         const body = `
